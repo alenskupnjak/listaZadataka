@@ -4,13 +4,47 @@
   <meta charset="UTF-8">
   <link rel="stylesheet" href="style/style.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://kit.fontawesome.com/165d179615.js" crossorigin="anonymous"></script>
   <title>Lista Zadataka</title>
 </head>
 <body>
   <div class="container">
     <header>
       <h2>Lista zadataka</h2>
+      <p>Neki text</p>
     </header>
+
+    <div id="filter-polje" class="filter-polje">
+      <label for="filter">Filter</label>
+      <input type="text" id="filter" placeholder="Upisi rijec za filtritanje naslova">
+
+        <select class="filter-select">
+          <option value="0">Selektiraj filter prema</option>
+          <option value="abecednoflt">Alfabetical</option>
+          <option value="kreiranflt">Prema kreiranju</option>
+          <option value="editiranflt">Prema zadnjoj izmjeni</option>
+        </select>
+        <label for="zadatakIzvrsenLista">Izvršeni zadatci</label>
+        <input type="checkbox" id="zadatakIzvrsenLista">
+    </div>
+
+
+    <div class="listaZadataka">
+
+      <div class="zadatak" id="zadatak">
+        <a href="edit.html" class="link">
+          <p id="zadatak-naziv">Naziv zadazka</p>
+          <textarea id="zadatak-text" cols="50" rows="5" disabled></textarea>
+        </a>
+        <label for="zadatakIzvrsen">Kreirano</label>
+        <input type="checkbox" id="zadatakIzvrsen">
+        <i class="far fa-trash-alt fa-2x"></i>
+      </div>
+
+
+
+
+    </div>
   </div>
   <script src="src/data.js"></script>
   <script src="src/DOM.js"></script>
