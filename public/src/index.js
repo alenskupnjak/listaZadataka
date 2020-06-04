@@ -11,7 +11,6 @@ let filteri = {
   select: 'abecednofilter',
   kreiranjeVrijeme:'',
   modificiranjeVrijeme: '',
-  upis:''
 }
 
 

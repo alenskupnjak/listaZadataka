@@ -15,7 +15,7 @@ function renderDOM(listaZadataka, filteri) {
       });
     }
 
-    filterSelect(listaZadataka, filteri.select)
+    listaZadataka = filterSelect(listaZadataka, filteri.select)
     console.log(listaZadataka);
 
     listaZadataka.forEach((element) => {
@@ -49,9 +49,47 @@ function  filterSelect(lista, filter) {
 
   if(filter === 'abecednofilter') {
     console.log('tu sam');
-    
-
+    lista.sort((a,b)=> {
+      if(a.naziv < b.naziv) {
+        return -1
+      }
+      if(a.naziv > b.naziv) {
+        return 1
+      }
+      if(a.naziv === b.naziv) {
+        return 0
+      }
+    })
   }
-  
 
+  if(filter === 'kreiranfilter') {
+    console.log('tu sam');
+    lista.sort((a,b)=> {
+      if(a.kreirano < b.kreirano) {
+        return -1
+      }
+      if(a.kreirano > b.kreirano) {
+        return 1
+      }
+      if(a.kreirano === b.kreirano) {
+        return 0
+      }
+    })
+  }
+
+  if(filter === 'editiranfilter') {
+    console.log('tu sam');
+    lista.sort((a,b)=> {
+      if(a.editirano < b.editirano) {
+        return -1
+      }
+      if(a.editirano > b.editirano) {
+        return 1
+      }
+      if(a.editirano === b.editirano) {
+        return 0
+      }
+    })
+  }
+   return lista
 }
