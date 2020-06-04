@@ -9,14 +9,20 @@ function renderDOM(listaZadataka, filteri) {
   } else {
     let innerHTML = '';
 
+    // prvo filtriramo listu prema izvrsenim zadacima
     if (filteri.izvrseniZadaci === true) {
       listaZadataka = listaZadataka.filter((data) => {
         return data.izvrsenZadatak === true;
       });
     }
 
+    // filtriramo listu prema selekriranome
     listaZadataka = filterSelect(listaZadataka, filteri.select)
     console.log(listaZadataka);
+
+    // filtriramo listu prema unosu
+    listaZadataka = filterUnos(listaZadataka, filteri.unos)
+
 
     listaZadataka.forEach((element) => {
       innerHTML += `
@@ -48,7 +54,6 @@ function  filterSelect(lista, filter) {
   console.log(lista, filter);
 
   if(filter === 'abecednofilter') {
-    console.log('tu sam');
     lista.sort((a,b)=> {
       if(a.naziv < b.naziv) {
         return -1
@@ -63,7 +68,6 @@ function  filterSelect(lista, filter) {
   }
 
   if(filter === 'kreiranfilter') {
-    console.log('tu sam');
     lista.sort((a,b)=> {
       if(a.kreirano < b.kreirano) {
         return -1
@@ -78,7 +82,6 @@ function  filterSelect(lista, filter) {
   }
 
   if(filter === 'editiranfilter') {
-    console.log('tu sam');
     lista.sort((a,b)=> {
       if(a.editirano < b.editirano) {
         return -1
@@ -92,4 +95,20 @@ function  filterSelect(lista, filter) {
     })
   }
    return lista
+}
+
+function  filterUnos(lista, filter) {
+
+  console.log(lista, filter);
+
+  lista = lista.filter(data => {
+    if (data.naziv.includes(filter)) {
+      console.log('nasao sam');
+      return data
+    }
+  })
+
+  console.log(lista);
+  
+  return lista
 }

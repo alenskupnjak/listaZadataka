@@ -1,7 +1,7 @@
 const kreirajZadatak = document.getElementById('kreiraj-zadatak')
 const sveOperacije = document.getElementById('listaZadataka')
 const izvrseniZadaci = document.getElementById('zadatakIzvrsenLista')
-const filterUnos = document.getElementById('filter')
+const filterUnosInput = document.getElementById('filter')
 const filterSelectBtn = document.getElementById('filter-select')
 
 
@@ -11,6 +11,7 @@ let filteri = {
   select: 'abecednofilter',
   kreiranjeVrijeme:'',
   modificiranjeVrijeme: '',
+  unos:''
 }
 
 
@@ -75,6 +76,13 @@ filterSelectBtn.addEventListener('click', (e)=>{
   console.log(e);
   console.log(e.target.value);
   filteri.select = e.target.value
+  renderDOM(listaZadataka,filteri)
+})
+
+filterUnosInput.addEventListener('input',(e)=> {
+  console.log(e);
+  console.log(e.target.value);
+  filteri.unos = e.target.value
   renderDOM(listaZadataka,filteri)
 })
 
