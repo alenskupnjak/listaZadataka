@@ -30,7 +30,27 @@ function snimiZapis(zapis) {
   snimiZapisLocalStorage(listaZadataka)
 }
 
+function obrisiPodatak(id,listaZadataka) {
 
+  console.log(id);
+  console.log(listaZadataka);
+  let index;
+
+  listaZadataka.forEach((element,i) => {
+    // console.log(element,i);
+    if(element.id === id) {
+      index = i
+    }
+     
+  });
+  
+  console.log(index);
+
+  listaZadataka.splice(index,1)
+  console.log(listaZadataka);
+  snimiZapisLocalStorage(listaZadataka)
+
+}
 
 
 

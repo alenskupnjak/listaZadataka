@@ -18,17 +18,15 @@ function renderDOM(listaZadataka) {
         <p id="zadatak-naziv">${element.text}</p>
         <textarea id="zadatak-text" cols="50" rows="5" disabled></textarea>
       </a>
-      <label for="zadatakIzvrsen">Kreirano</label >
+      <label for="zadatakIzvrsen">${moment(element.kreirano).format("MM/DD/YYYY")}</label >
       <input type="checkbox" id="zadatakIzvrsen">
       <button id="brisi" class="btn brisi"><i class="far fa-trash-alt fa-2x del"></i></button>
       </div>
       `
     });
-
+    
     listaSvihZadataka.innerHTML = innerHTML
 
   }
-
-
-  
 }
+
