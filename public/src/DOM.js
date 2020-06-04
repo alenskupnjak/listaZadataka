@@ -2,13 +2,30 @@ const listaSvihZadataka = document.getElementById('listaZadataka')
 
 
 // osvježavanje stranice Index.html
-function renderDOM(listaZadataka) {
+function renderDOM(listaZadataka, izvrseniZadaci ,filter) {
+  console.log(listaZadataka,izvrseniZadaci, filter);
+  
+
+
   if(listaZadataka.length === 0) {
     listaSvihZadataka.innerHTML=''
   } else {
     let innerHTML =''
+
+    if(izvrseniZadaci === 'izvrseniZadaci') {
+      console.log('xx');
+      
+      listaZadataka = listaZadataka.filter( data => {
+        return data.izvrsenZadatak === true
+      })
+
+    }
+    console.log(listaZadataka);
+    
     
     listaZadataka.forEach(element => {
+
+
       innerHTML +=`
       <div class="zadatak" id="${element.id}">
       <a href="edit.html#${element.id}" class="link">
@@ -20,6 +37,8 @@ function renderDOM(listaZadataka) {
       <img src="img/delete.png" alt="" class="btn brisi">
       </div>
       `
+
+
     });
     
     listaSvihZadataka.innerHTML = innerHTML

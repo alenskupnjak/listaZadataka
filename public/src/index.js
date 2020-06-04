@@ -1,13 +1,8 @@
 const kreirajZadatak = document.getElementById('kreiraj-zadatak')
 const sveOperacije = document.getElementById('listaZadataka')
+const izvrseniZadaci = document.getElementById('zadatakIzvrsenLista')
 
 
-
-
-
-
-
-  
 
 
  let filteri = {
@@ -59,6 +54,18 @@ sveOperacije.addEventListener('click',(e)=> {
   renderDOM(listaZadataka)
 }
 )
+
+izvrseniZadaci.addEventListener('click', (e)=> {
+  console.log(e);
+  console.log(e.target.checked);
+  
+  if(e.target.checked === true) {
+    renderDOM(listaZadataka,'izvrseniZadaci')
+  } else {
+    renderDOM(listaZadataka)
+  }
+
+})
 
 
 
