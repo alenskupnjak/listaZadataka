@@ -1,14 +1,17 @@
 const kreirajZadatak = document.getElementById('kreiraj-zadatak')
 const sveOperacije = document.getElementById('listaZadataka')
 const izvrseniZadaci = document.getElementById('zadatakIzvrsenLista')
+const filterUnos = document.getElementById('filter')
+const filterSelectBtn = document.getElementById('filter-select')
 
 
 
-
- let filteri = {
-  zadatak: '',
+let filteri = {
+  izvrseniZadaci: false,
+  select: 'abecednofilter',
   kreiranjeVrijeme:'',
-  modificiranjeVrijeme: ''
+  modificiranjeVrijeme: '',
+  upis:''
 }
 
 
@@ -17,16 +20,14 @@ const izvrseniZadaci = document.getElementById('zadatakIzvrsenLista')
 let listaZadataka = ucitajLocalStorage()
 
 // osvježavanje stranice
-renderDOM(listaZadataka)
+renderDOM(listaZadataka,filteri)
 const obrisiZadatak = document.querySelectorAll('.brisi')
-
-
 
 
 // EventListen- i
 kreirajZadatak.addEventListener('click',kreirajZapis)
 
-
+// slusa za operaciju brisanja, izvršeni zadaci
 sveOperacije.addEventListener('click',(e)=> {
 
   console.log(e);
@@ -51,20 +52,31 @@ sveOperacije.addEventListener('click',(e)=> {
     zadatakIzvrsenNeizvrsen(id,listaZadataka)
   }
 
-  renderDOM(listaZadataka)
+  renderDOM(listaZadataka,filteri)
 }
 )
 
+// Prikazuje listu svih zadataka
 izvrseniZadaci.addEventListener('click', (e)=> {
-  console.log(e);
-  console.log(e.target.checked);
-  
-  if(e.target.checked === true) {
-    renderDOM(listaZadataka,'izvrseniZadaci')
-  } else {
-    renderDOM(listaZadataka)
-  }
+  // console.log(e);
+  // console.log(e.target.checked);
+  // console.log(filteri);
 
+  if (e.target.checked) {
+    filteri.izvrseniZadaci = true
+  } else {
+    filteri.izvrseniZadaci = false
+  }
+  renderDOM(listaZadataka,filteri)
+})
+
+
+
+filterSelectBtn.addEventListener('click', (e)=>{
+  console.log(e);
+  console.log(e.target.value);
+  filteri.select = e.target.value
+  renderDOM(listaZadataka,filteri)
 })
 
 

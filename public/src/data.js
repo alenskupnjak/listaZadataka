@@ -32,6 +32,7 @@ function snimiZapis(zapis) {
   if (pronasao) {
     pronasao.naziv = zapis.naziv;
     pronasao.text = zapis.text;
+    pronasao.editirano = zapis.editirano;
   } else {
     listaZadataka.push(zapis);
   }

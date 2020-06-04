@@ -2,11 +2,10 @@ const snimiZapisBtn = document.getElementById('snimiZapis');
 const povratakBtn = document.getElementById('povratak');
 const zadatakInput = document.getElementById('edit-zadatak-naziv');
 const zadatakTextInput = document.getElementById('edit-zadatak-text');
+const kreirano = document.getElementById('kreirano');
 
-console.log(window.document);
+// console.log(window.document);
 
-console.log(zadatakInput);
-console.log(zadatakInput.value);
 
 console.log(moment());
 console.log(moment().format());
@@ -38,6 +37,8 @@ console.log(zadatakEdit);
 if(zadatakEdit) {
   zadatakInput.value = zadatakEdit.naziv
   zadatakTextInput.textContent = zadatakEdit.text
+
+  kreirano.textContent = moment(zadatakEdit.kreirano).format('MM/DD/YYYY, h:mm:ss a')
 }
 
 console.log(zadatakInput.textContent);
@@ -45,7 +46,7 @@ console.log(zadatakInput.textContent);
 
 
 
-// snimanje zapisa na local disk i vracanje na index.html
+// snimanje zapisa na localDisk i vracanje na index.html
 snimiZapisBtn.addEventListener('click', (e) => {
   if (zadatakInput.value === '' || zadatakTextInput === '') {
     alert('Jedno polje prazno');
@@ -55,6 +56,7 @@ snimiZapisBtn.addEventListener('click', (e) => {
   let zapis = {
     id: location.hash.substr(1),
     kreirano: new Date().getTime(),
+    editirano: new Date().getTime(),
     naziv: zadatakInput.value,
     text: zadatakTextInput.value,
     izvrsenZadatak: false,
