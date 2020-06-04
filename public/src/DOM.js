@@ -2,8 +2,6 @@ const listaSvihZadataka = document.getElementById('listaZadataka');
 
 // osvježavanje stranice Index.html
 function renderDOM(listaZadataka, filteri) {
-  console.log(listaZadataka, filteri);
-
   if (listaZadataka.length === 0) {
     listaSvihZadataka.innerHTML = '<p> Nema Nijednog zapisa</p>';
   } else {
@@ -17,13 +15,12 @@ function renderDOM(listaZadataka, filteri) {
     }
 
     // filtriramo listu prema selekriranome
-    listaZadataka = filterSelect(listaZadataka, filteri.select)
-    console.log(listaZadataka);
+    listaZadataka = filterSelect(listaZadataka, filteri.select);
 
     // filtriramo listu prema unosu
-    listaZadataka = filterUnos(listaZadataka, filteri.unos)
+    listaZadataka = filterUnos(listaZadataka, filteri.unos);
 
-
+    //  za komletno filtriranu listu radimo DOM
     listaZadataka.forEach((element) => {
       innerHTML += `
       <div class="zadatak" id="${element.id}">
@@ -48,67 +45,58 @@ function renderDOM(listaZadataka, filteri) {
   }
 }
 
-
-function  filterSelect(lista, filter) {
-
-  console.log(lista, filter);
-
-  if(filter === 'abecednofilter') {
-    lista.sort((a,b)=> {
-      if(a.naziv < b.naziv) {
-        return -1
+// filter prema selektiranju
+function filterSelect(lista, filter) {
+  if (filter === 'abecednofilter') {
+    lista.sort((a, b) => {
+      if (a.naziv < b.naziv) {
+        return -1;
       }
-      if(a.naziv > b.naziv) {
-        return 1
+      if (a.naziv > b.naziv) {
+        return 1;
       }
-      if(a.naziv === b.naziv) {
-        return 0
+      if (a.naziv === b.naziv) {
+        return 0;
       }
-    })
+    });
   }
 
-  if(filter === 'kreiranfilter') {
-    lista.sort((a,b)=> {
-      if(a.kreirano < b.kreirano) {
-        return -1
+  if (filter === 'kreiranfilter') {
+    lista.sort((a, b) => {
+      if (a.kreirano < b.kreirano) {
+        return -1;
       }
-      if(a.kreirano > b.kreirano) {
-        return 1
+      if (a.kreirano > b.kreirano) {
+        return 1;
       }
-      if(a.kreirano === b.kreirano) {
-        return 0
+      if (a.kreirano === b.kreirano) {
+        return 0;
       }
-    })
+    });
   }
 
-  if(filter === 'editiranfilter') {
-    lista.sort((a,b)=> {
-      if(a.editirano < b.editirano) {
-        return -1
+  if (filter === 'editiranfilter') {
+    lista.sort((a, b) => {
+      if (a.editirano < b.editirano) {
+        return -1;
       }
-      if(a.editirano > b.editirano) {
-        return 1
+      if (a.editirano > b.editirano) {
+        return 1;
       }
-      if(a.editirano === b.editirano) {
-        return 0
+      if (a.editirano === b.editirano) {
+        return 0;
       }
-    })
+    });
   }
-   return lista
+  return lista;
 }
 
-function  filterUnos(lista, filter) {
-
-  console.log(lista, filter);
-
-  lista = lista.filter(data => {
+// filter za unos
+function filterUnos(lista, filter) {
+  lista = lista.filter((data) => {
     if (data.naziv.includes(filter)) {
-      console.log('nasao sam');
-      return data
+      return data;
     }
-  })
-
-  console.log(lista);
-  
-  return lista
+  });
+  return lista;
 }

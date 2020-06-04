@@ -24,11 +24,11 @@ kreirajZadatak.addEventListener('click', kreirajZapis);
 
 // slusa za operaciju brisanja, izvršeni zadaci
 sveOperacije.addEventListener('click', (e) => {
-  console.log(e);
-  console.log(e.path);
-  console.log(e.srcElement);
-  console.log(e.srcElement.id);
-  console.log(e.srcElement.className);
+  // console.log(e);
+  // console.log(e.path);
+  // console.log(e.srcElement);
+  // console.log(e.srcElement.id);
+  // console.log(e.srcElement.className);
 
   if (e.srcElement.className === 'btn brisi') {
     let id = e.path[1].id;
