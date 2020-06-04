@@ -6,6 +6,7 @@
 
 body {
   background-color: #f4f5f6;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .container {
@@ -15,6 +16,7 @@ body {
 }
 
 header {
+  background-color: #28a746;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -29,13 +31,19 @@ header {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: blue;
-  padding: 12px;
+  text-align: center;
+  background-color:#a5d6a7;
+  padding: 10px;
   /* margin: 10px; */
+}
+
+.filter-polje label {
+  font-size: 1.2rem;
+  text-align: right;
 }
 #filter {
   font-size: 1rem;
-  width: 250px;
+  width: 200px;
   border: none;
   padding: 8px;
 }
@@ -43,31 +51,37 @@ header {
 .filter-select {
   border: none;
   font-size: 1rem;
-  background-color: red;
+  /* background-color: red; */
   padding: 8px;
+  border: none;
 }
 
 .filter-polje label {
   /* display: flex; */
   /* justify-content: space-between; */
   /* background-color: blue; */
-  padding: 10px;
+  padding: 8px;
   /* margin: 10px; */
 }
 
-.listaZadataka {
+/* .listaZadataka {
   background-color: bisque;
-}
+} */
 
 .zadatak {
-  background-color: #0284d0 ;
+  background-color:#dcedc8;
   display: flex;
   align-items: center;
   text-align: center;
   padding: 5px;
-  margin: 5px;
+  /* margin: 5px; */
   text-decoration: none;
+  border: 1px solid #cfd8dc;
   /* justify-content: space-between; */
+}
+
+#zadatak-text {
+  font-size: 1.2rem;
 }
 
 .link {
@@ -87,6 +101,12 @@ header {
   padding: 8px;
 }
 
+.zadatak img {
+  width: 60px;
+  height: 60px;
+  margin-left: 15px;
+}
+
 #zadatak-text {
   width: 400px;
 }
@@ -96,36 +116,22 @@ header {
   text-align: left;
 }
 
-.zadatak i {
-  padding: 8px;
-  margin-left: 20px;
-}
-
-/* #kreiraj-zadatak {
-  font-size: 1rem;
-  padding: 0.3rem;
-  margin: 0.3rem;
-  border: none;
-} */
-
-
-
 .brisi {
   position: relative;
-  background-color:transparent;
+  background-color: transparent;
   border: none;
   width: 40px;
   height: 40px;
   outline: none;
   /* border: none; */
-} 
+}
 
 .brisi .del {
   width: 100%;
   height: 100%;
   position: absolute;
-  background-color:blue;
-  background-color:transparent;
+  background-color: blue;
+  background-color: transparent;
   /* border: none; */
   left: -50%;
   top: -0;
@@ -151,13 +157,52 @@ header {
   /* transition: transform 0.5s ease-in-out; */
 }
 
+.kreiraj button {
+  font-size: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  /* align-items: center;  */
+  margin: 0.5rem auto;
+  /* width: 60%; */
+  text-align: left;
+  text-overflow: inherit;
+  vertical-align: middle;
+  padding: 5px;
 
-#edit-zadatak-naziv {
-  /* background-color: #0284d0; */
-  /* color: wheat; */
-  /* font-display: ; */
- font-size: 1rem;
- padding: 0.5rem;
- margin: 10px;
- /* border: none; */
+  text-justify: auto;
+}
+
+/* EDIT page */
+#edit-naziv {
+  font-size: 1rem;
+  padding: 0.5rem;
+  margin: 10px;
+  /* border: none; */
+}
+
+#edit-text {
+  font-size: 1.5rem;
+  padding: 0.5rem;
+  margin: 10px;
+  /* border: none; */
+}
+
+.edit-listaZadataka {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+#zadatakIzvrsen {
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+  outline: none;
+}
+
+#zadatakIzvrsen:hover {
+  background-color: #28a746;
+  color: red;
+  transform: scale(1.2);
 }

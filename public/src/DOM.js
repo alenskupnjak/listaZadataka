@@ -5,7 +5,7 @@ function renderDOM(listaZadataka, filteri) {
   console.log(listaZadataka, filteri);
 
   if (listaZadataka.length === 0) {
-    listaSvihZadataka.innerHTML = '';
+    listaSvihZadataka.innerHTML = '<p> Nema Nijednog zapisa</p>';
   } else {
     let innerHTML = '';
 
@@ -36,7 +36,7 @@ function renderDOM(listaZadataka, filteri) {
       <label for="zadatakIzvrsen">${moment(element.kreirano).format(
         'MM/DD/YYYY'
       )}</label >
-      <input type="checkbox" id="zadatakIzvrsen" ${
+      <input title="text" type="checkbox" id="zadatakIzvrsen" ${
         element.izvrsenZadatak === true ? 'checked' : ''
       }>
       <img src="img/delete.png" alt="" class="btn brisi">

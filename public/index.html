@@ -7,22 +7,21 @@
   <title>Lista Zadataka</title>
 </head>
 <body>
+  <header>
+    <h1>Lista zadataka</h1>
+  </header>
   <div class="container">
-    <header>
-      <h2>Lista zadataka</h2>
-      <p>Neki text</p>
-    </header>
 
     <div id="filter-polje" class="filter-polje">
-      <label for="filter">Filter</label>
-      <input type="text" id="filter" placeholder="Upisi rijec za filtritanje naslova">
+      <label for="filter">Filter:</label>
+      <input type="text" id="filter" placeholder="za naslov">
 
         <select class="filter-select" id="filter-select">
-          <option value="abecednofilter">Selektirano Abacedno</option>
+          <option value="abecednofilter">Selektirano prema abecedi</option>
           <option value="kreiranfilter">Selektirano prema kreiranju</option>
           <option value="editiranfilter">Selektirano prema zadnjoj izmjeni</option>
         </select>
-        <label for="zadatakIzvrsenLista">Izvršeni zadatci</label>
+        <label for="zadatakIzvrsenLista">Izvršeni zadaci</label>
         <input type="checkbox" id="zadatakIzvrsenLista">
     </div>
 
@@ -41,10 +40,11 @@
    
       
     </div>
-    <button id="kreiraj-zadatak" class="btn">Kreiraj zapis</button>
+    <div class="kreiraj">
+      <button id="kreiraj-zadatak" class="btn">Kreiraj zapis</button>
+    </div>
   </div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.26.0/moment.min.js"></script>
-
   <script src="src/genPassword.js"></script>
   <script src="src/data.js"></script>
   <script src="src/DOM.js"></script>

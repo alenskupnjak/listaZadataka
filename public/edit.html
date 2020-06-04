@@ -10,31 +10,34 @@
 
 <body>
 
+  <header>
+    <h2>Editiran zadatak</h2>
+
+  </header>
   <div class="container">
-    <header>
-      <h2>Edit zadataka</h2>
-      <p>Neki text</p>
-    </header>
 
     <div class="edit-listaZadataka">
 
       <div class="edit-zadatak" id="zadatak">
         <div>
-          <label for="edit-zadatak-naziv" >Naziv zadatka</label>
-          <input id="edit-zadatak-naziv" ></input>
+          <label for="edit-zadatak-naziv">Naziv zadatka</label>
+          <input id="edit-naziv"></input>
         </div>
-        <textarea id="edit-zadatak-text" cols="50" rows="5" placeholder="Text zadatka" ></textarea>
+        <textarea id="edit-text" cols="50" rows="5" placeholder="Text zadatka"></textarea>
         <p>Kreirano</p>
         <p id="kreirano">neki text</p>
 
       </div>
-      <button id="snimiZapis" class="btn">Snimi zapis</button>
-      <button id="povratak" class="btn">Povratak</button>
+      <div>
+        <button id="snimiZapis" class="btn">Snimi zapis</button>
+        <button id="povratak" class="btn">Povratak</button>
+      </div>
     </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.26.0/moment.min.js"></script>
-    <script src="src/data.js"></script>
-    <script src="src/DOM.js"></script>
-    <script src="src/edit.js"></script>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.26.0/moment.min.js"></script>
+  <script src="src/data.js"></script>
+  <script src="src/DOM.js"></script>
+  <script src="src/edit.js"></script>
 </body>
 
 </html>

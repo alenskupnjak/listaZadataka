@@ -1,7 +1,7 @@
 const snimiZapisBtn = document.getElementById('snimiZapis');
 const povratakBtn = document.getElementById('povratak');
-const zadatakInput = document.getElementById('edit-zadatak-naziv');
-const zadatakTextInput = document.getElementById('edit-zadatak-text');
+const zadatakInput = document.getElementById('edit-naziv');
+const zadatakTextInput = document.getElementById('edit-text');
 const kreirano = document.getElementById('kreirano');
 
 // console.log(window.document);
@@ -30,6 +30,7 @@ const now = new Date();
 const timestamp = now.getTime();
 console.log(timestamp);
 
+// Usnimavanje pojedinacnog podatka
 let zadatakEdit = usnimiEdit(location.hash.substr(1))
 console.log(zadatakEdit);
 
@@ -39,6 +40,8 @@ if(zadatakEdit) {
   zadatakTextInput.textContent = zadatakEdit.text
 
   kreirano.textContent = moment(zadatakEdit.kreirano).format('MM/DD/YYYY, h:mm:ss a')
+} else {
+  kreirano.textContent = 'Zadatak jos nije kreiran!'
 }
 
 console.log(zadatakInput.textContent);
