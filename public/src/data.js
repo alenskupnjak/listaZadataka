@@ -1,5 +1,6 @@
-// let zadaci
 
+
+// Ucitavanje podataka sa local storage
 function ucitajLocalStorage() {
   let localStorageData = localStorage.getItem('listaZadataka');
   if (localStorageData) {
@@ -9,47 +10,50 @@ function ucitajLocalStorage() {
   }  
 }
 
-
+// prelazak na stranicu Edit.html
 function kreirajZapis() {
   const id = uuidv4();
   location.assign(`edit.html#${id}`)
 }
 
-
+// snimanje podataka u local storage
 function snimiZapisLocalStorage(zapis) {
   localStorage.setItem('listaZadataka', JSON.stringify(zapis))
-  // localStorage.setItem('listaZadataka', zapis)
 }
 
-
+//
 function snimiZapis(zapis) {
   let listaZadataka = ucitajLocalStorage()
-  console.log(listaZadataka);
-  
   listaZadataka.push(zapis)
   snimiZapisLocalStorage(listaZadataka)
 }
 
+// brisanje zadatka sa liste
 function obrisiPodatak(id,listaZadataka) {
-
-  console.log(id);
-  console.log(listaZadataka);
   let index;
-
   listaZadataka.forEach((element,i) => {
     // console.log(element,i);
     if(element.id === id) {
       index = i
     }
-     
   });
   
-  console.log(index);
-
   listaZadataka.splice(index,1)
-  console.log(listaZadataka);
+  // snimamo u local storage
   snimiZapisLocalStorage(listaZadataka)
+}
 
+// mijenja zadatak iz izvršenog u neizvršenog i obratno
+function zadatakIzvrsenNeizvrsen(id,listaZadataka) {
+  listaZadataka.forEach(zadatak => {
+    if( zadatak.id === id) {
+      zadatak.izvrsenZadatak = ! zadatak.izvrsenZadatak
+    }
+    
+  })
+
+  // snimanje promjene na Local disk
+  snimiZapisLocalStorage(listaZadataka)
 }
 
 

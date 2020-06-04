@@ -1,17 +1,14 @@
 const listaSvihZadataka = document.getElementById('listaZadataka')
 
 
+// osvježavanje stranice Index.html
 function renderDOM(listaZadataka) {
-  
   if(listaZadataka.length === 0) {
     listaSvihZadataka.innerHTML=''
   } else {
     let innerHTML =''
     
     listaZadataka.forEach(element => {
-      console.log(element);
-      console.log(element.id);
-      // innerHTML = '<p id="zadatak-naziv">Naziv zadazka</p>'
       innerHTML +=`
       <div class="zadatak" id="${element.id}">
       <a href="edit.html" class="link">
@@ -19,8 +16,8 @@ function renderDOM(listaZadataka) {
         <textarea id="zadatak-text" cols="50" rows="5" disabled></textarea>
       </a>
       <label for="zadatakIzvrsen">${moment(element.kreirano).format("MM/DD/YYYY")}</label >
-      <input type="checkbox" id="zadatakIzvrsen">
-      <button id="brisi" class="btn brisi"><i class="far fa-trash-alt fa-2x del"></i></button>
+      <input type="checkbox" id="zadatakIzvrsen" ${element.izvrsenZadatak === true ? "checked" : ''}>
+      <img src="img/delete.png" alt="" class="btn brisi">
       </div>
       `
     });

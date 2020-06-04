@@ -24,29 +24,44 @@ let listaZadataka = ucitajLocalStorage()
 // osvježavanje stranice
 renderDOM(listaZadataka)
 const obrisiZadatak = document.querySelectorAll('.brisi')
-console.log(obrisiZadatak);
+
 
 
 
 // EventListen- i
 kreirajZadatak.addEventListener('click',kreirajZapis)
 listaZadatakaBrisi.addEventListener('click',(e)=> {
-  let id = e.path[2].id
+
+
+  
   console.log(e);
   console.log(e.path);
-  console.log(e.path[2].id);
   console.log(e.srcElement);
+  // console.log(e.srcElement.id);
   console.log(e.srcElement.className);
   
-  if(e.srcElement.className === 'far fa-trash-alt fa-2x del') {
-   
+  if(e.srcElement.className === 'btn brisi') {
+    let id = e.path[1].id
     console.log(id);
     
     // brisemo podatak iz lokalStorage
     obrisiPodatak(id,listaZadataka)
   }
+
+  if(e.srcElement.id === 'zadatakIzvrsen') {
+   let id = e.path[1].id
+    console.log(id);
+    
+    // mjenjamo podatak izvrsenog zadatka u lokalStorage
+    zadatakIzvrsenNeizvrsen(id,listaZadataka)
+  }
+
+
+
+
   renderDOM(listaZadataka)
 }
 )
+
 
 
