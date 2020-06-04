@@ -1,5 +1,5 @@
 const kreirajZadatak = document.getElementById('kreiraj-zadatak')
-const listaZadatakaBrisi = document.getElementById('listaZadataka')
+const sveOperacije = document.getElementById('listaZadataka')
 
 
 
@@ -30,14 +30,14 @@ const obrisiZadatak = document.querySelectorAll('.brisi')
 
 // EventListen- i
 kreirajZadatak.addEventListener('click',kreirajZapis)
-listaZadatakaBrisi.addEventListener('click',(e)=> {
 
 
-  
+sveOperacije.addEventListener('click',(e)=> {
+
   console.log(e);
   console.log(e.path);
   console.log(e.srcElement);
-  // console.log(e.srcElement.id);
+  console.log(e.srcElement.id);
   console.log(e.srcElement.className);
   
   if(e.srcElement.className === 'btn brisi') {
@@ -55,9 +55,6 @@ listaZadatakaBrisi.addEventListener('click',(e)=> {
     // mjenjamo podatak izvrsenog zadatka u lokalStorage
     zadatakIzvrsenNeizvrsen(id,listaZadataka)
   }
-
-
-
 
   renderDOM(listaZadataka)
 }
