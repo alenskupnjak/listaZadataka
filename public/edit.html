@@ -1,14 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
+  <link rel="stylesheet" href="style/style.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Edit</title>
 </head>
+
 <body>
 
-  <h2>edit</h2>
-  
-  <script src="src/DOM.js"></script>
+  <div class="container">
+    <header>
+      <h2>Edit zadataka</h2>
+      <p>Neki text</p>
+    </header>
+
+    <div class="edit-listaZadataka">
+
+      <div class="edit-zadatak" id="zadatak">
+        <div>
+          <label for="edit-zadatak-naziv" >Naziv zadatka</label>
+          <input id="edit-zadatak-naziv" placeholder="Naziv" value="naziv"></input>
+        </div>
+        <textarea id="edit-zadatak-text" cols="50" rows="5" placeholder="Text zadatka" >FF</textarea>
+        <p for="zadatakKreiran">Kreirano</p>
+        <p>neki text</p>
+
+      </div>
+      <button id="snimiZapis" class="btn">Snimi zapis</button>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.26.0/moment.min.js"></script>
+    <script src="src/data.js"></script>
+    <script src="src/DOM.js"></script>
+    <script src="src/edit.js"></script>
 </body>
+
 </html>

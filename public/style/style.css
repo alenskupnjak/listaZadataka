@@ -60,6 +60,7 @@ header {
 }
 
 .zadatak {
+  background-color: #0284d0 ;
   display: flex;
   align-items: center;
   text-align: center;
@@ -98,4 +99,54 @@ header {
 .zadatak i {
   padding: 8px;
   margin-left: 20px;
+}
+
+/* #kreiraj-zadatak {
+  font-size: 1rem;
+  padding: 0.3rem;
+  margin: 0.3rem;
+  border: none;
+} */
+
+
+
+.brisi {
+  position: relative;
+  background-color:transparent;
+  border: none;
+  width: 40px;
+  height: 40px;
+  outline: none;
+  /* border: none; */
+} 
+
+.brisi .del {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-color:blue;
+  background-color:transparent;
+  /* border: none; */
+  left: -50%;
+  top: -0;
+  /* right: 40px;
+  bottom: 40px; */
+  /* height: 40px; */
+  /* outline: non?e; */
+}
+
+.btn {
+  font-size: 1rem;
+  padding: 0.5rem;
+  cursor: pointer;
+}
+
+.btn:active {
+  outline: none;
+  border: none;
+}
+
+.btn:focus {
+  transform: scale(0.95);
+  /* transition: transform 0.5s ease-in-out; */
 }
