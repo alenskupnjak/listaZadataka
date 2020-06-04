@@ -12,24 +12,22 @@ let filteri = {
   unos: '',
 };
 
+
 // Učiravanje podataka sa lokal storage
 let listaZadataka = ucitajLocalStorage();
+
 
 // osvježavanje stranice
 renderDOM(listaZadataka, filteri);
 const obrisiZadatak = document.querySelectorAll('.brisi');
 
+
 // EventListen- i
 kreirajZadatak.addEventListener('click', kreirajZapis);
 
+
 // slusa za operaciju brisanja, izvršeni zadaci
 sveOperacije.addEventListener('click', (e) => {
-  // console.log(e);
-  // console.log(e.path);
-  // console.log(e.srcElement);
-  // console.log(e.srcElement.id);
-  // console.log(e.srcElement.className);
-
   if (e.srcElement.className === 'btn brisi') {
     let id = e.path[1].id;
     console.log(id);
@@ -51,10 +49,6 @@ sveOperacije.addEventListener('click', (e) => {
 
 // Prikazuje listu svih zadataka
 izvrseniZadaci.addEventListener('click', (e) => {
-  // console.log(e);
-  // console.log(e.target.checked);
-  // console.log(filteri);
-
   if (e.target.checked) {
     filteri.izvrseniZadaci = true;
   } else {
@@ -78,26 +72,3 @@ filterUnosInput.addEventListener('input', (e) => {
 });
 
 
-
-// Izmjena na localSoorage
-window.addEventListener('storage', (e) => {
-  let storage
-  console.log(e);
-  console.log(e.key);
-  console.log(e.storageArea);
-
-  if (e.key === 'listaZadataka') {
-   let storage = JSON.parse(e.storageArea)
-  }
-
-
-  console.log(storage);
-
-
-//   if (e.key === 'notes') {
-//     notes = JSON.parse(e.newValue)
-//     renderNotes(notes, filters)
-// }
-
-  // renderDOM(storage,filteri)
-});

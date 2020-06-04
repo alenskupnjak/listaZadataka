@@ -15,15 +15,17 @@ body {
   margin: auto;
 }
 
-header {
+.naslov h1{
   background-color: #28a746;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
+  /* width: 100vh; */
+  /* display: flex; */
+  /* flex-direction: column; */
+  justify-content: space-between;
   align-items: center;
   text-align: center;
   padding: 1rem;
   margin: 8px;
+  width: 100%;
 }
 
 .filter-polje {
