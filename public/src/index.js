@@ -3,6 +3,7 @@ const sveOperacije = document.getElementById('listaZadataka');
 const izvrseniZadaci = document.getElementById('zadatakIzvrsenLista');
 const filterUnosInput = document.getElementById('filter');
 const filterSelectBtn = document.getElementById('filter-select');
+const porukaBrisanja = document.getElementById('poruke');
 
 let filteri = {
   izvrseniZadaci: false,
@@ -34,6 +35,11 @@ sveOperacije.addEventListener('click', (e) => {
 
     // brisemo podatak iz lokalStorage
     obrisiPodatak(id, listaZadataka);
+    porukaBrisanja.classList.add('vrati-poruku')
+
+    setTimeout(()=>{
+      porukaBrisanja.classList.remove('vrati-poruku')
+    },4000)
   }
 
   if (e.srcElement.id === 'zadatakIzvrsen') {
@@ -58,8 +64,6 @@ izvrseniZadaci.addEventListener('click', (e) => {
 });
 
 filterSelectBtn.addEventListener('click', (e) => {
-  console.log(e);
-  console.log(e.target.value);
   filteri.select = e.target.value;
   renderDOM(listaZadataka, filteri);
 });

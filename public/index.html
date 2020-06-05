@@ -4,27 +4,41 @@
   <meta charset="UTF-8">
   <link rel="stylesheet" href="style/style.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" type="image/icon" href="img/listaZadataka.png">
   <title>Lista Zadataka</title>
 </head>
 <body>
+  
   <header>
     <div class="naslov">
       <h1>Lista zadataka</h1>
+      <!-- <button id="kreiraj-zadatak" class="btn">Kreiraj zapis</button> -->
     </div>
+    <div class="kreiraj">
+      <button id="kreiraj-zadatak" class="btn">Kreiraj zapis</button>
+    </div>
+
   </header>
   <div class="container">
+
+
+    <div id="poruke" class="poruke">
+      <div id="poruke-obavijest">
+        <p>Zadatak obrisan</p>
+      </div>
+    </div>
 
     <div id="filter-polje" class="filter-polje">
       <label for="filter">Filter:</label>
       <input type="text" id="filter" placeholder="za naslov">
 
         <select class="filter-select" id="filter-select">
-          <option value="abecednofilter">Selektirano prema abecedi</option>
-          <option value="kreiranfilter">Selektirano prema kreiranju</option>
-          <option value="editiranfilter">Selektirano prema zadnjoj izmjeni</option>
+          <option value="abecednofilter">Selektirano po abecedi</option>
+          <option value="kreiranfilter">Selektirano po kreiranju</option>
+          <option value="editiranfilter">Selektirano po izmjeni</option>
         </select>
-        <label for="zadatakIzvrsenLista">Izvršeni zadaci</label>
-        <input type="checkbox" id="zadatakIzvrsenLista">
+          <label for="zadatakIzvrsenLista">Izvršeni zadaci</label>
+          <input type="checkbox" id="zadatakIzvrsenLista">
     </div>
 
 
@@ -42,10 +56,10 @@
    
       
     </div>
-    <div class="kreiraj">
-      <button id="kreiraj-zadatak" class="btn">Kreiraj zapis</button>
-    </div>
   </div>
+
+
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.26.0/moment.min.js"></script>
   <script src="src/genPassword.js"></script>
   <script src="src/data.js"></script>

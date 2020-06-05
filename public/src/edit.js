@@ -3,19 +3,27 @@ const povratakBtn = document.getElementById('povratak');
 const zadatakInput = document.getElementById('edit-naziv');
 const zadatakTextInput = document.getElementById('edit-text');
 const kreirano = document.getElementById('kreirano');
+const protekloVrijeme = document.getElementById('vrijeme-proteklo');
 
+// moment(timestamp).fromNow()
 
 // Usnimavanje pojedinacnog podatka
 let zadatakEdit = usnimiEdit(location.hash.substr(1))
+
+// postavljamo tex u naslovu ako je zadatak vec kreiran
+if(zadatakEdit) {
+  protekloVrijeme.textContent = 'Mijenjano ' + moment(zadatakEdit.editirano).fromNow()
+}
+
 
 
 // ako se zapis editira upisuje podatke
 if(zadatakEdit) {
   zadatakInput.value = zadatakEdit.naziv
   zadatakTextInput.textContent = zadatakEdit.text
-  kreirano.textContent = moment(zadatakEdit.kreirano).format('MM/DD/YYYY, h:mm:ss a')
+  kreirano.textContent = 'Zadatak kreiran: ' + moment(zadatakEdit.kreirano).format('MM/DD/YYYY, h:mm:ss a')
 } else {
-  kreirano.textContent = 'Zadatak jos nije kreiran!'
+  kreirano.textContent = 'Zadatak još nije kreiran!'
 }
 
 

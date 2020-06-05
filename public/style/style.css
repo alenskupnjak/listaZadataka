@@ -10,9 +10,13 @@ body {
 }
 
 .container {
+  display: flex;
+  flex-direction: column;
+  position: relative;
   max-width: 800px;
   /* display: flex; */
   margin: auto;
+  overflow: hidden;
 }
 
 .naslov h1{
@@ -29,9 +33,9 @@ body {
 }
 
 .filter-polje {
+  display: flex;
   cursor: pointer;
   width: 100%;
-  display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
@@ -49,6 +53,7 @@ body {
   width: 200px;
   border: none;
   padding: 8px;
+  margin: 8px;
 }
 
 .filter-select {
@@ -68,13 +73,23 @@ body {
   /* margin: 10px; */
 }
 
+
+#zadatakIzvrsenLista {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 20px;
+  width: 20px;
+  /* margin: auto; */
+}
 /* .listaZadataka {
   background-color: bisque;
 } */
 
 .zadatak {
-  background-color:#dcedc8;
   display: flex;
+  background-color:#dcedc8;
   align-items: center;
   text-align: center;
   padding: 5px;
@@ -86,6 +101,13 @@ body {
 
 #zadatak-text {
   font-size: 1.2rem;
+}
+
+.kreiraj-brisi-izvrseno {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: space-between;
 }
 
 .link {
@@ -106,6 +128,7 @@ body {
 }
 
 .zadatak img {
+  background-color: transparent;
   width: 60px;
   height: 60px;
   margin-left: 15px;
@@ -145,10 +168,15 @@ body {
   /* outline: non?e; */
 }
 
+
+/* BUTTON */
 .btn {
+  border-radius: 5px;
+  background-color: #90caf9;
   font-size: 1rem;
   padding: 0.5rem;
   cursor: pointer;
+  border: none;
 }
 
 .btn:active {
@@ -161,8 +189,15 @@ body {
   /* transition: transform 0.5s ease-in-out; */
 }
 
+.btn.povratak {
+  background-color: #c8e6c9;
+}
+
+
+
+
 .kreiraj button {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   display: flex;
   justify-content: space-between;
   /* align-items: center;  */
@@ -198,6 +233,25 @@ body {
   text-align: center;
 }
 
+.edit-naslov {
+  background-color: #28a746;
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+  align-items: center;
+  padding: 8px;
+}
+
+#edit-text {
+  margin-top: 20px;
+  width: 80%;
+}
+
+#kreirano{
+  padding: 8px;
+  margin: 10px auto;
+}
+
 #zadatakIzvrsen {
   cursor: pointer;
   width: 20px;
@@ -209,4 +263,50 @@ body {
   background-color: #28a746;
   color: red;
   transform: scale(1.2);
+}
+
+
+/* Prikazivanje poruke brisanja zapisa*/
+.poruke {
+  position:absolute;
+  /* top:0; */
+  width: 250px;
+  height: 60px;
+  background-color: #90caf9;
+  font-size: 1.4rem;
+  display: flex;
+  border-radius: 5px;
+  align-items: center;
+  justify-content: center; 
+  text-align: center;
+  transform: translateX(0px) translateY(-500px)
+  /* left: 200; */
+}
+
+.vrati-poruku {
+  transform: translateX(0px) translateY(-10px);
+  transition: transform 1s ease;
+}
+
+
+
+
+/* MEDIA*/
+@media(max-width:500px) {
+  .zadatak {
+ flex-direction: column;
+  }
+  #zadatak-naziv {
+    width: 50px;
+    text-align: right;
+    margin-right: 10px;
+  }
+  #zadatak-text {
+    width: 300px;
+  }
+
+  .filter-polje {
+  flex-direction: column;
+ }
+
 }

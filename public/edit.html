@@ -9,10 +9,11 @@
 </head>
 
 <body>
-
   <header>
-    <h2>Editiran zadatak</h2>
-
+    <div class="edit-naslov">
+      <h1>Editiranje zadataka</h1>
+      <p id="vrijeme-proteklo"></p>
+    </div>
   </header>
   <div class="container">
 
@@ -24,14 +25,14 @@
           <input id="edit-naziv"></input>
         </div>
         <textarea id="edit-text" cols="50" rows="5" placeholder="Text zadatka"></textarea>
-        <p>Zadatak kreiran</p>
-        <p id="kreirano">neki text</p>
-
+        <p id="kreirano">neki-text</>
       </div>
+
       <div>
         <button id="snimiZapis" class="btn">Snimi zadatak</button>
-        <button id="povratak" class="btn">Povratak</button>
+        <button id="povratak" class="btn povratak">Povratak</button>
       </div>
+
     </div>
   </div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.26.0/moment.min.js"></script>
@@ -39,5 +40,4 @@
   <script src="src/DOM.js"></script>
   <script src="src/edit.js"></script>
 </body>
-
 </html>
