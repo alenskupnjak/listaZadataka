@@ -19,11 +19,9 @@ function snimiZapisLocalStorage(zapis) {
   localStorage.setItem('listaZadataka', JSON.stringify(zapis));
 }
 
-//
+// Snimanje zadazka na cocalStorage
 function snimiZapis(zapis) {
-  console.log(zapis);
   let listaZadataka = ucitajLocalStorage();
-  console.log(listaZadataka);
 
   let pronasao = listaZadataka.find((data) => {
     return data.id === zapis.id;
@@ -63,7 +61,7 @@ function zadatakIzvrsenNeizvrsen(id, listaZadataka) {
     }
   });
 
-  // snimanje promjene na Local disk
+  // snimanje promjene na LocalStorage
   snimiZapisLocalStorage(listaZadataka);
 }
 

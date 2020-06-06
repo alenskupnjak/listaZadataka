@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <link rel="stylesheet" href="style/style.css">
@@ -7,8 +8,9 @@
   <link rel="shortcut icon" type="image/icon" href="img/listaZadataka.png">
   <title>Lista Zadataka</title>
 </head>
+
 <body>
-  
+
   <header>
     <div class="naslov">
       <h1>Lista zadataka</h1>
@@ -32,13 +34,13 @@
       <label for="filter">Filter:</label>
       <input type="text" id="filter" placeholder="za naslov">
 
-        <select class="filter-select" id="filter-select">
-          <option value="abecednofilter">Selektirano po abecedi</option>
-          <option value="kreiranfilter">Selektirano po kreiranju</option>
-          <option value="editiranfilter">Selektirano po izmjeni</option>
-        </select>
-          <label for="zadatakIzvrsenLista">Izvršeni zadaci</label>
-          <input type="checkbox" id="zadatakIzvrsenLista">
+      <select class="filter-select" id="filter-select">
+        <option value="abecednofilter">Selektirano po abecedi</option>
+        <option value="kreiranfilter">Selektirano po kreiranju</option>
+        <option value="editiranfilter">Selektirano po izmjeni</option>
+      </select>
+      <label for="zadatakIzvrsenLista">Izvršeni zadaci</label>
+      <input type="checkbox" id="zadatakIzvrsenLista">
     </div>
 
 
@@ -53,8 +55,8 @@
         <input type="checkbox" id="zadatakIzvrsen">
         <button id="brisi" class="btn brisi"><i class="far fa-trash-alt fa-2x del"></i></button>
       </div>
-   
-      
+
+
     </div>
   </div>
 
@@ -66,4 +68,5 @@
   <script src="src/DOM.js"></script>
   <script src="src/index.js"></script>
 </body>
+
 </html>

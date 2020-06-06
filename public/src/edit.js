@@ -5,19 +5,17 @@ const zadatakTextInput = document.getElementById('edit-text');
 const kreirano = document.getElementById('kreirano');
 const protekloVrijeme = document.getElementById('vrijeme-proteklo');
 
-// moment(timestamp).fromNow()
 
 // Usnimavanje pojedinacnog podatka
 let zadatakEdit = usnimiEdit(location.hash.substr(1))
 
-// postavljamo tex u naslovu ako je zadatak vec kreiran
+// postavljamo text u naslovu ako je zadatak vec kreiran
 if(zadatakEdit) {
   protekloVrijeme.textContent = 'Mijenjano ' + moment(zadatakEdit.editirano).fromNow()
 }
 
 
-
-// ako se zapis editira upisuje podatke
+// ako se zapis editira upisuje podatke zadatak kreiran DA/NE
 if(zadatakEdit) {
   zadatakInput.value = zadatakEdit.naziv
   zadatakTextInput.textContent = zadatakEdit.text
@@ -34,6 +32,7 @@ snimiZapisBtn.addEventListener('click', (e) => {
     return;
   }
 
+  // definran zapis
   let zapis = {
     id: location.hash.substr(1),
     kreirano: new Date().getTime(),

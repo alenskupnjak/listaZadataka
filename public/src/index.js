@@ -5,6 +5,7 @@ const filterUnosInput = document.getElementById('filter');
 const filterSelectBtn = document.getElementById('filter-select');
 const porukaBrisanja = document.getElementById('poruke');
 
+//definicija svih filtera
 let filteri = {
   izvrseniZadaci: false,
   select: 'abecednofilter',
@@ -14,7 +15,7 @@ let filteri = {
 };
 
 
-// Učiravanje podataka sa lokal storage
+// učitavanje podataka sa lokal storage
 let listaZadataka = ucitajLocalStorage();
 
 
@@ -27,24 +28,23 @@ const obrisiZadatak = document.querySelectorAll('.brisi');
 kreirajZadatak.addEventListener('click', kreirajZapis);
 
 
-// slusa za operaciju brisanja, izvršeni zadaci
+// slusa za operacije brisanja, izvršeni zadaci
 sveOperacije.addEventListener('click', (e) => {
+  // brisemo podatak iz lokalStorage
   if (e.srcElement.className === 'btn brisi') {
-    let id = e.path[1].id;
-    console.log(id);
+    let id = e.path[2].id;
 
-    // brisemo podatak iz lokalStorage
     obrisiPodatak(id, listaZadataka);
-    porukaBrisanja.classList.add('vrati-poruku')
+    porukaBrisanja.classList.add('vrati-poruku');
 
-    setTimeout(()=>{
-      porukaBrisanja.classList.remove('vrati-poruku')
-    },4000)
+    setTimeout(() => {
+      porukaBrisanja.classList.remove('vrati-poruku');
+    }, 4000);
   }
 
+  // preklopka zadatak izvršen/neizvršen
   if (e.srcElement.id === 'zadatakIzvrsen') {
-    let id = e.path[1].id;
-    console.log(id);
+    let id = e.path[2].id;
 
     // mjenjamo podatak izvrsenog zadatka u lokalStorage
     zadatakIzvrsenNeizvrsen(id, listaZadataka);
@@ -52,6 +52,7 @@ sveOperacije.addEventListener('click', (e) => {
 
   renderDOM(listaZadataka, filteri);
 });
+
 
 // Prikazuje listu svih zadataka
 izvrseniZadaci.addEventListener('click', (e) => {
@@ -63,16 +64,18 @@ izvrseniZadaci.addEventListener('click', (e) => {
   renderDOM(listaZadataka, filteri);
 });
 
+
+// firtriranje zadataka prema padajucem meniju
 filterSelectBtn.addEventListener('click', (e) => {
   filteri.select = e.target.value;
   renderDOM(listaZadataka, filteri);
 });
 
+
+// filtriranje zadataka prema naslovu unosom texta
 filterUnosInput.addEventListener('input', (e) => {
   console.log(e);
   console.log(e.target.value);
   filteri.unos = e.target.value;
   renderDOM(listaZadataka, filteri);
 });
-
-
